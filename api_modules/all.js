@@ -15,6 +15,11 @@ Users.prototype.getAllUsers = (callback) => {
     con.query(sql, (err, result) => callback(result));
 };
 
+Users.prototype.getAllSecureUsers = (callback) => {
+    const sql = "SELECT * FROM user";
+    con.query(sql, (err, result) => callback(result));
+};
+
 Users.prototype.loginUser = (username, password, callback) => {
     const sql = `SELECT * FROM user WHERE user_name='${username}' AND user_password='${password}'`;
     con.query(sql, (err, result) => callback(result));

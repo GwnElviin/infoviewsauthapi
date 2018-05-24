@@ -14,7 +14,13 @@ app.get('/api', (req, res) => {
 /* Endpoints for  USERS */
 
 // Retrieve a list of all users 
-app.get('/api/users/all', verifyToken, (req, res) => {
+app.get('/api/users/secure/all', verifyToken, (req, res) => {
+    APIFuncs.Users.getAllSecureUsers((result) => {
+        res.json(result)
+    });
+});
+// Retrieve a list of all users 
+app.get('/api/users/all', (req, res) => {
     APIFuncs.Users.getAllUsers((result) => {
         res.json(result)
     });
